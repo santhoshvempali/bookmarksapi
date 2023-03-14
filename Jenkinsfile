@@ -4,17 +4,18 @@ def test(){
 }
 pipeline {
     agent any
-	  options {
+    options {
     buildDiscarder(logRotator(numToKeepStr: '5'))
   }
   	environment {
     DOCKERHUB_CREDENTIALS = credentials('dockerhub')
+		echo DOCKERHUB_CREDENTIALS
   }
     stages {
         stage('build') {
             steps {
                 echo 'building the application .....'
-							  sh 'docker build -t santhoshvemaplii/jenkins-docker-hub .'
+	        sh 'docker build -t santhoshvemaplii/jenkins-docker-hub .'
 								
             }
         }
@@ -22,7 +23,7 @@ pipeline {
             steps {
     
                 echo 'testing the applicataion....'
-							  sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
+		            sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
                 test()
             }
         }
