@@ -13,7 +13,7 @@ pipeline {
     stages {
         stage('build') {
             steps {
-                echo 'building the application .....'
+                echo 'building the application .l....'
 	        sh 'docker build -t santhoshvemaplii/jenkins-docker-hub .'
 								
             }
