@@ -8,7 +8,9 @@ pipeline {
         }
         stage('test') {
             steps {
-                echo 'testing the applicataion ....'
+                def test():return 2+2;
+                echo 'testing the applicataion....'
+                echo test()
             }
         }
         stage('deploy') {
