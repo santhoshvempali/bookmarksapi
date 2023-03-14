@@ -1,3 +1,6 @@
+def test():
+    return 2+2;
+
 pipeline {
     agent any
     stages {
@@ -8,7 +11,7 @@ pipeline {
         }
         stage('test') {
             steps {
-                def test():return 2+2;
+    
                 echo 'testing the applicataion....'
                 echo test()
             }
