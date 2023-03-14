@@ -1,5 +1,5 @@
 def test():
-    return 2+2;
+	echo 2+2;
 
 pipeline {
     agent any
@@ -13,7 +13,7 @@ pipeline {
             steps {
     
                 echo 'testing the applicataion....'
-                echo test()
+                test()
             }
         }
         stage('deploy') {
