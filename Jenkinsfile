@@ -9,7 +9,7 @@ pipeline {
   }
   	environment {
     DOCKERHUB_CREDENTIALS = credentials('dockerhub')
-		echo DOCKERHUB_CREDENTIALS
+			echo "${ DOCKERHUB_CREDENTIALS}"
   }
     stages {
         stage('build') {
