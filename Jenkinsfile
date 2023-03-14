@@ -1,6 +1,6 @@
-def test():
+def test(){
 	echo 2+2;
-
+}
 pipeline {
     agent any
     stages {
