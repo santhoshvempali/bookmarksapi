@@ -1,5 +1,6 @@
 def test(){
-	echo 2+2;
+	ans=2+2;
+	echo "${ans}"
 }
 pipeline {
     agent any
