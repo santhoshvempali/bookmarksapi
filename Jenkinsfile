@@ -10,13 +10,14 @@ pipeline {
   environment {
     DOCKERHUB_CREDENTIALS = credentials('dockerhub')
   }
+
+  stages {
     stage('Login') {
       steps {
         sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
 	echo "hello"
       }
     }
-  stages {
     stage('Build') {
       steps {
         sh 'docker pull santhoshvemaplii/microshop-orders'
