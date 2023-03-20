@@ -10,24 +10,20 @@ pipeline {
   environment {
     DOCKERHUB_CREDENTIALS = credentials('dockerhub')
   }
-  stages {
-    stage('Build') {
-      steps {
-        sh 'docker build -t santhoshvemaplii/jenkins-docker-hub .'
-      }
-    }
     stage('Login') {
       steps {
         sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
 	echo "hello"
       }
     }
-    stage('Push') {
+  stages {
+    stage('Build') {
       steps {
-        sh 'docker push santhoshvemaplii/jenkins-docker-hub'
-        echo "test"
+        sh 'docker pull santhoshvemaplii/microshop-orders'
       }
     }
+
+
   }
   post {
     always {
